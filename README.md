@@ -1,6 +1,6 @@
 # JsonSki vs simDjson vs RapidJson
 
-This is a performance test to compare Jsonski, simdjson,rapidjson parsing times.
+This is a performance test to compare Jsonski, simdjson and rapidjson parsing times.
 
 Download the dataset from here - https://drive.google.com/drive/folders/185SH188MJmmm-QTd14_8gq5QD-gyouNW
 
