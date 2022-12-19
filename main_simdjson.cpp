@@ -8,7 +8,7 @@ using namespace std::chrono;
 int main(void) {
    auto start = high_resolution_clock::now();
    simdjson::dom::parser parser;
-  std::cout << parser.load("datasets/citylots.json").at_pointer("/tiger") << std::endl;
+   std::cout << parser.load("datasets/citylots.json").at_pointer("/tiger") << std::endl;
     auto stop = high_resolution_clock::now();
       auto duration = duration_cast<microseconds>(stop - start); 
        cout << "Time taken by function: "

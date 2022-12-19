@@ -25,8 +25,6 @@ int main() {
   auto start = high_resolution_clock::now();
     char * file_path = strdup("./datasets/citylots.json");
     string query = "$.tiger";
-   cout<<"start loading the single large record from "<<file_path<<endl;
- 
     Record* rec = RecordLoader::loadSingleRecord(file_path);
     if (rec == NULL) {
         cout<<"record loading fails."<<endl;
