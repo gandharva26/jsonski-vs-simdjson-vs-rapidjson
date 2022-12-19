@@ -1,37 +1,28 @@
-# simdjson vs. RapidJSON
+# simdjson vs. RapidJSON vs JsonSki
 
-This is a very simple performance test to compare simdjson and rapidjson parsing times.
+This is a performance test to compare Jsonski, simdjson,rapidjson parsing times.
 
-Download a big JSON file.
+Download the dataset from here - https://drive.google.com/drive/folders/185SH188MJmmm-QTd14_8gq5QD-gyouNW
 
-```sh
-$ wget "https://raw.githubusercontent.com/zemirco/sf-city-lots-json/master/citylots.json"
-```
-
-You can get the real size of the file in bytes with command bellow.
+Compile, run and profile the main_jsonski.cpp application.
 
 ```sh
-$ wc -c < citylots.json
-```
+$ g++ -O3 -std=c++11 -mavx -mavx2 -msse -msse2 -msse4 -msse4.2 -mpclmul -o main_jsonski include/jsonski/*.cpp main_jsonski.cpp -lpthread -mcmodel=medium -static-libstdc++
+$ ./main_jsonski
 
-You can check the capabilities of your computer CPU with the command bellow.
-
-```sh
-$ sysctl -a | grep machdep.cpu.features
 ```
 
 Compile, run and profile the main_simdjson.cpp application.
 
 ```sh
 $ g++ -std=c++11 -Iinclude -O3 main_simdjson.cpp include/simdjson/simdjson.cpp -o main_simdjson
-$ time ./main_simdjson
-$ valgrind --tool=massif ./main_simdjson
+$ ./main_simdjson
+
 ```
 
 Compile, run and profile the main_rapidjson.cpp application.
 
 ```sh
 $ g++ -Iinclude -O3 main_rapidjson.cpp -o main_rapidjson
-$ time ./main_rapidjson
-$ valgrind --tool=massif ./main_rapidjson 
+$ ./main_rapidjson
 ```
