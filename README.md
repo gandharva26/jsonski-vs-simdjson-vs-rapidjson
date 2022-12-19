@@ -1,4 +1,4 @@
-# simdjson vs. RapidJSON vs JsonSki
+# JsonSki vs simDjson vs RapidJson
 
 This is a performance test to compare Jsonski, simdjson,rapidjson parsing times.
 
